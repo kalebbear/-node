@@ -1,0 +1,119 @@
+{% extends './layout.html' %}
+
+
+
+
+{% block content %}    
+
+ <div class="sortbox mb20">
+  <div class="w1100 clearfix ">
+      <p style="line-height: 60px ;font-size: 12px;letter-spacing: 3px">首页/登录</p>
+  </div>
+   
+</div>
+
+
+
+<div class="w1100 clearfix">
+  <div class="fl" >
+      <img src="/public/img/m1.png">
+  </div>
+
+
+ <div class="fl ml30 mt10" style="width: 800px ;">
+    <div class="l-header">注册</div>
+    <div class="l-box">
+         <div class="l-row">
+            <label>用户名</label>
+            <input id="user" type="text" class="" placeholder="请输入需要注册的用户名">
+          </div>
+          <div  class="l-row mb30">
+            <label>密码</label>
+            <input id="psd" type="password" class="" placeholder="请输入密码">
+          </div>
+          <div class="l-row">
+            <label>确认密码</label>
+            <input id="comfirmPsd" type="password" class="" placeholder="请输入密码">
+          </div>
+          <div class="l-row">
+              <button id="register-btn" type="button" class="l-btn">注册</button>
+             <button type="button" class="l-btn" style="background: #1f1f1f">取消</button>
+          </div>
+        
+    </div>
+   
+
+
+
+</div>
+
+
+
+
+
+
+<!--   <div class="form-group">
+    <label>用户名</label>
+    <input id="user" type="text" class="form-control" placeholder="请输入需要注册的用户名">
+  </div>
+  <div class="form-group">
+    <label>密码</label>
+    <input id="psd" type="password" class="form-control" placeholder="请输入密码">
+  </div>
+  <div class="form-group">
+    <label>确认密码</label>
+    <input id="comfirmPsd" type="password" class="form-control" placeholder="请再次输入密码">
+  </div>
+
+  <button id="register-btn" type="button" class="btn btn-success btn-block">注册</button>
+  <button type="button" class="btn btn-danger btn-block">取消</button>
+</div>
+
+
+</div> -->
+{% endblock %}
+
+{% block js %}
+<script src="/public/js/register.js"></script>
+{% endblock %}
+
+
+  {% block css %}
+  <style type="text/css">
+     .l-header{
+      background: #f2f2f2;
+      margin-top: 43px;
+      height: 40px;
+      line-height: 40px;
+      padding-left: 10px
+  }
+  .l-box{
+    border: 1px solid #fff;
+    padding: 30px
+  }
+  .l-box label{
+     display: inline-block;
+     width: 150px;
+  }
+  .l-row{
+    height: 40px
+  }
+  .l-box input{
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    background: #d5d5d5;
+    width: 220px;
+    border: 1px solid #ccc;
+    height: 32px;
+    border-radius: 4px;
+  }
+  .l-btn{
+    height: 30px;
+    width: 80px;
+    margin-right: 100px;
+    border: 0;
+    border-radius: 15px;
+    color: #fff;
+    background: #fa6f57
+  }
+  </style>
+  {%  endblock %}

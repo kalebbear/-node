@@ -1,0 +1,56 @@
+{% extends './layout.html' %}
+
+
+{% block content %}
+<div class="sortbox mb20">
+      <div class="w1100 clearfix ">
+      <p style="line-height: 60px ;font-size: 12px;letter-spacing: 3px">首页/修改商品</p>
+  </div>
+   
+</div>
+
+<div class="w1100">
+
+    <div class="l-box">
+        <label>商品名称</label>
+        <input id="goods-name" type="text" class="" placeholder="请输入商品名称" value="{{goodsname}}">
+    </div>
+    <div class="l-box">
+        <label>商品描述</label>
+        <textarea  class="" name="" id="description"  placeholder="请输入商品描述" value="">{{description}}</textarea>
+    </div>
+    <div class="l-box">
+        <label>添加尺码</label>
+        <input type="text" class="" id="size" placeholder="尺码">
+        <button class="r-btn" id="add-size">添加</button>
+        <br/>
+        <div class="size-list">
+            <!-- {% for sizeItem in size %} 
+            <button class="r-btn mt10">{{sizeItem}}<span>X</span></button>
+            {% endfor %}  -->
+        </div>
+    </div>
+    
+    <!-- <div class="form-group">
+        <label>添加款式</label>
+        <input type="text" class="form-control" placeholder="请输入商品名称">
+        <button class="btn btn-primary">添加</button>
+        <br/>
+        
+    </div> -->
+    <div class="l-box">
+        <label>价格</label>
+        <input id="price" type="number" class="" placeholder="请输入商品价格" value="{{price}}">
+    </div>
+<button type="button" id="{{_id.toString()}}" class="l-btn modify-btn fl ml30 mt30">修改商品</button>
+<button type="button" class="l-btn fl mt30"  style="background: #1f1f1f">取消</button>
+
+
+</div>
+
+
+
+<script src="/public/js/modifygoods.js"></script>
+
+{% endblock %}
+        

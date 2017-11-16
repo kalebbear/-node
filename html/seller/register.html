@@ -1,0 +1,62 @@
+{% extends './layout.html' %}
+
+{% block content %}
+    <div class="sortbox mb20">
+    <div class="w1100 clearfix ">
+        <p style="line-height: 60px ;font-size: 12px;letter-spacing: 3px">首页/登录</p>
+    </div>
+     
+  </div>
+
+
+  <div class="w1100"  ;">
+   
+    <div class="l-box">
+         <div class="l-row mb20">
+            <label>商家名称</label>
+            <input id="user" type="text" class="" placeholder="请输入需要注册的用户名">
+          </div>
+
+           <form class=" clearfix" id="upload-logo" action="/api/admin/upload-logo" enctype="multipart/form-data" method="post" style="height: ">
+             <label class="fl">图片</label>
+             <div class="fl">
+                <input type="text" name="imageName"/>
+                <input id="logo" type="file" name="test" multiple="multiple"/>
+                <img id="logo-img" width="150"/>
+             </div>
+           
+
+          </form> 
+
+           <div class="l-row mb20" style="height: 100px;">
+            <label>店铺描述</label>
+            <textarea id="description" cols="50" rows="5" class="" placeholder="请输入店铺描述"></textarea>
+           </div>
+          <div  class="l-row mb20">
+            <label>密码</label>
+            <input id="psd" type="password" class="" placeholder="请输入密码">
+          </div>
+          <div class="l-row">
+            <label>确认密码</label>
+            <input id="comfirmPsd" type="password" class="" placeholder="请输入密码">
+          </div>
+          <div class="l-row">
+              <button id="register-btn" type="button" class="l-btn">注册</button>
+             <button type="button" class="l-btn" style="background: #1f1f1f">取消</button>
+          </div>
+        
+    </div>
+
+
+    <div class="w1100">
+
+      
+     
+      
+     
+      
+
+
+
+    <script src="/public/js/admin-register.js"></script>
+{% endblock %}

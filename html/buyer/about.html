@@ -1,0 +1,36 @@
+{% extends './layout.html' %}
+
+{% block content %}
+ <div class="sortbox mb20">
+  <div class="w1100 clearfix ">
+      <p style="line-height: 60px ;font-size: 12px;letter-spacing: 3px">首页/店铺</p>
+  </div>
+   
+  </div> 
+
+
+<div class="w1100 clearfix">
+    <div class="fl" >
+      <img src="/public/img/m1.png">
+    </div>
+    <div class="fl ml30 mt10" style="width: 800px ;background:">
+      <table class="table">
+        <tr style="background: ">
+          <th>&nbsp;</th>
+          <th>店铺名称</th>
+          <th>店铺介绍</th>
+          <th>进入店铺</th>
+        </tr>
+        {% for i in sellerlist %}
+        <tr>
+         <td><img src="{{i.logo}}" width="100" height="100" style="padding: 5px ;background:#fff"></td>
+          <td style="line-height: 100px">{{i.sellername}}</td>
+          <td style="line-height: 100px">{{i.description}}</td>
+          <td><a class="btnx mt30" href="/store?id={{i._id.toString()}}">进入店铺</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+</div>
+
+{% endblock %}

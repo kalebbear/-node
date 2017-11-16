@@ -1,0 +1,88 @@
+{% extends './layout.html' %}
+
+
+   
+
+
+{% block content %}  
+ <div class="sortbox mb20">
+  <div class="w1100 clearfix ">
+    <div class="fl pabs mt10">
+        Sort:<a href="/goodslist?sort=1&keyword={{keyword}}"><img src="/public/img/up.png" "></a>
+          <a href="/goodslist?sort=-1&keyword={{keyword}}"><img src="/public/img/down.png" height="16px"></a>
+          <a href="/goodslist?keyword={{keyword}}"><img src="/public/img/refresh.png" height="16px"></a>
+    </div>
+    {% if urls.length>1 %}
+    <div class="tac mt20">
+      <ul class="pagebox clearfix">
+        <li class="{{preClass}}">
+          <a href="{{preUrl}}" >
+            <span >&laquo;</span>
+          </a>
+        </li>
+
+        {% for urlObj in urls %}
+        <li class="{{urlObj.class}}"><a href="{{urlObj.url}}">{{urlObj.index}}</a></li>
+        {% endfor %}
+
+        <li  class="{{nextClass}}">
+          <a href="{{nextUrl}}" >
+            <span >&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+   
+  </div>  
+<div class="w1100">
+  
+ 
+
+  <div class="goods-list w1100 clearfix">
+    {% for goods in allGoods %}
+    <div class="goods-item">
+      <a href="/goodsDetail?id={{goods._id.toString()}}">
+        <img src="{{goods.img}}" width="260" height="346" />
+        <div class="goodsinfo">
+          <h3 class="goodsname">{{goods.goodsname}}</h3>
+          <p class="price">￥ {{goods.price}}</p>
+          <p class="sellername">{{goods.seller.sellername}} <span class="fr">+点击购买</span></p>
+        </div>
+        
+      </a>
+    </div>
+    {% endfor %}
+  </div> 
+
+</div>
+{% if urls.length>1 %}
+<div style="text-align:center">
+  <ul class="pagebox clearfix">
+    <li class="{{preClass}}">
+      <a href="{{preUrl}}" >
+        <span >&laquo;</span>
+      </a>
+    </li>
+
+    {% for urlObj in urls %}
+    <li class="{{urlObj.class}}"><a href="{{urlObj.url}}">{{urlObj.index}}</a></li>
+    {% endfor %}
+
+    <li  class="{{nextClass}}">
+      <a href="{{nextUrl}}" >
+        <span >&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</div>
+{% endif %}
+{% endblock %}
+
+
+{% block css %}
+<style>
+  
+</style>
+{% endblock %}

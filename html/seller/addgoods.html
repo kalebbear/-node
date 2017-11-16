@@ -1,0 +1,71 @@
+{% extends './layout.html' %}
+
+
+{% block content %}
+<div class="sortbox mb20">
+      <div class="w1100 clearfix ">
+      <p style="line-height: 60px ;font-size: 12px;letter-spacing: 3px">首页/添加商品</p>
+  </div>
+   
+</div>
+
+<div class="w1100">
+    <div class="l-box">
+        <label>商品名称</label>
+        <input id="goods-name" type="text" class="" placeholder="请输入商品名称">
+    </div>
+    <div class="l-box">
+        <label>商品描述</label>
+        <textarea  class="" name="" id="description"  placeholder="请输入商品描述"></textarea>
+    </div>
+
+    <form class="l-box clearfix" id="upload-goods" action="/api/admin/upload-goods" enctype="multipart/form-data" method="post">
+        <label class="fl">商品图片</label>
+        <div class="fl">
+            <input type="text" name="imageName"/>
+            <input id="goods" type="file" name="test" multiple="multiple" class="mt10 mb10" />
+            <!-- <input type="submit" value="Upload"> --><img id="goods-img" width="150" height="150"/>
+        </div>
+        
+    </form>
+    
+
+    <div class="l-box">
+        <label>添加尺码</label>
+        <input type="text" class="" id="size" placeholder="尺码">
+        <button class="l-btn" id="add-size">添加</button>
+        <br/>
+        <div class="size-list">  
+        </div>
+    </div>
+    
+    <!-- <div class="form-group">
+        <label>添加款式</label>
+        <input type="text" class="form-control" placeholder="请输入商品名称">
+        <button class="btn btn-primary">添加</button>
+        <br/>
+        
+    </div> -->
+    <div class="l-box">
+        <label>价格</label>
+        <input id="price" type="number" class="" placeholder="请输入商品价格">
+    </div>
+<a type="button" id="add-btn" class="l-btn fl ml30 mt30 mb30">添加商品</a>
+<a type="button" class="l-btn fl mt30 mb30 "  style="background: #1f1f1f">取消</a>
+
+
+</div>
+
+
+
+<script src="/public/js/addgoods.js"></script>
+
+{% endblock %}
+        
+{% block css %}
+<style type="text/css">
+    .l-box input{
+        width: 380px!important;
+    }
+</style>
+{% endblock %}

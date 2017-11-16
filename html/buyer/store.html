@@ -1,0 +1,72 @@
+{% extends './layout.html' %}
+
+{% block content %}
+<!-- <div>
+    <img src="{{sellerInfo.logo}}" style="width: 100px;height: 100px; padding: 5px ;background:#fff">
+    <h1>{{sellerInfo.sellername}}</h1>
+</div> -->
+
+ <div class="sortbox mb20" style="height: auto;line-height:100px">
+    <div class="w1100 clearfix prel" style="height: 130px">
+        <img src="{{sellerInfo.logo}}" style="position:absolute;top:0;left:0;width: 100px;height: 100px; padding: 5px ;background:#fff;float: left;">
+         <h1 class="fl mt30" style="position: absolute;top: 20px;left: 140px">欢迎光临：{{sellerInfo.sellername}}</h1>
+        <div style="text-align:center;margin-top: 50px" >
+            <ul class="pagebox clearfix">
+                <li class="{{preClass}}">
+                    <a href="{{preUrl}}" >
+                        <span >&laquo;</span>
+                    </a>
+                </li>
+
+                {% for urlObj in urls %}
+                <li class="{{urlObj.class}}"><a href="{{urlObj.url}}">{{urlObj.index}}</a></li>
+                {% endfor %}
+
+                <li  class="{{nextClass}}">
+                    <a href="{{nextUrl}}" >
+                        <span >&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  
+   
+  </div>
+<div class="container">
+    <div class="goods-list w1100 clearfix">
+        {% for goods in allGoods %}
+        <div class="goods-item">
+          <a href="/goodsDetail?id={{goods._id.toString()}}">
+            <img src="{{goods.img}}" width="100%" />
+            <div class="goodsinfo">
+              <h3 class="goodsname">{{goods.goodsname}}</h3>
+              <p class="price">￥ {{goods.price}}</p>
+              <p class="sellername">{{goods.seller.sellername}} <span class="fr">+点击购买</span></p>
+            </div>
+            
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    <div style="text-align:center">
+        <ul class="pagebox clearfix">
+            <li class="{{preClass}}">
+                <a href="{{preUrl}}" >
+                    <span >&laquo;</span>
+                </a>
+            </li>
+
+            {% for urlObj in urls %}
+            <li class="{{urlObj.class}}"><a href="{{urlObj.url}}">{{urlObj.index}}</a></li>
+            {% endfor %}
+
+            <li  class="{{nextClass}}">
+                <a href="{{nextUrl}}" >
+                    <span >&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

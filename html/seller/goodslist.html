@@ -1,0 +1,86 @@
+{% extends './layout.html' %}
+
+
+{% block content %}
+
+
+
+<div class="">
+        
+
+<div class="sortbox mb20">
+      <div class="w1100 clearfix ">
+          <p style="line-height: 60px ;font-size: 12px;letter-spacing: 3px">首页/商品列表</p>
+          <a href="/admin/addgoods" class="fl l-btn mt20 mb20">添加商品</a>
+      </div>
+        
+  </div> 
+
+{% if isShow %}
+
+
+<table class="table w1100">
+    <tr>
+        <th>名字</th>
+        <th>价格</th>
+        <th>尺码</th>
+        <th>款式</th>
+        <th>操作</th>
+    </tr>
+    {% for goods in goodslist %}
+    <tr>
+        <td>{{goods.goodsname}}</td>
+        <td>{{goods.price}}</td>
+        <td>
+            {% for size in goods.size %}
+            {{size}}/
+            {% endfor %}
+        </td>
+        <td>
+            {% for style in goods.style %}
+            {{style}}/
+            {% endfor %}
+        </td>
+        <td>
+            <button id="{{goods._id.toString()}}" class="r-btn delete fl">删除</button>
+          
+                <a class="r-btn fl" style="background: #1f1f1f"  href="/admin/modifygoods?goodsid={{goods._id.toString()}}">修改</a>
+            
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<div style="text-align:center">
+  <ul class="pagebox clearfix">
+    <li class="{{preClass}}">
+      <a href="{{preUrl}}" >
+        <span >&laquo;</span>
+      </a>
+    </li>
+
+    {% for urlObj in urls %}
+    <li class="{{urlObj.class}}"><a href="{{urlObj.url}}">{{urlObj.index}}</a></li>
+    {% endfor %}
+
+    <li  class="{{nextClass}}">
+      <a href="{{nextUrl}}" >
+        <span >&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+{% else %}
+<p>目前你还没有商品，请先添加商品</p>
+{% endif %}
+</div>
+
+
+
+
+
+<script src="/public/js/seller-goodslist.js"></script>
+
+{% endblock %}
+        

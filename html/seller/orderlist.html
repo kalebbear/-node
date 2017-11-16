@@ -1,0 +1,45 @@
+{% extends './layout.html' %}
+
+
+{% block content %}
+
+<div class="sortbox mb20">
+    <div class="w1100 clearfix ">
+        <p style="line-height: 60px ;font-size: 12px;letter-spacing: 3px">首页/我的订单</p>
+    </div>
+
+</div>
+
+<div class="w1100 clearfix">
+    <div class="fl">
+        <img src="/public/img/m1.png">
+    </div>
+    <div class="fl ml20 " style="margin-top: 24px">
+
+        <div class="tac ordernav clearfix" style="height: 30px;line-height: 30px">
+            <span style="width: 300px">名称</span>
+            <span style="width: 120px">尺码</span>
+            <span style="width: 120px">样式</span>
+            <span style="width: 120px">数量</span>
+            <span style="width: 120px">买家</span>
+            <span style="width: 120px">操作</span>
+        </div>
+        {% for item in orderList %}
+        <div class="order-item clearfix tac mb20" style="background: #f2f2f2">
+            <div style="width: 300px;height: 80px;float: left;line-height: 80px" class="prel">
+                <img src="{{item.goods.img}}" width="60" height="80" class="fl pabs" style="left: 0">
+                <h2  class=" tac" style="line-height: 80px">{{item.goods.goodsname}}</h2>
+            </div>
+
+            <span style="" class="fl">{{item.selectSize}}</span>
+            <span style="" class="fl">{{item.selectStyle}}</span>
+            <span style="" class="fl">1</span>
+            <span class="fl" style="color: #fa6f57;font-weight: bold;">{{item.buyer.username}}</span>
+            <span style="" class="fl"><img src="/public/img/close.png" width="20px" style="position: relative;top: 5px"></span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+        

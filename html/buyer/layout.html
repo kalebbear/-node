@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Easy Shop</title>
+    <link href="/public/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="/public/css/quicklayout.css">
+      <link rel="stylesheet" href="/public/css/reset.css">
+      <link rel="stylesheet" href="/public/css/main.css">
+    {% block css %}
+    {% endblock %}
+  </head>
+  <body>
+
+    <!--<nav class="navbar navbar-default">-->
+        <!--<div class="container-fluid">-->
+            <!--&lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
+            <!--<div class="navbar-header">-->
+                <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">-->
+                    <!--<span class="sr-only">Toggle navigation</span>-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--<span class="icon-bar"></span>-->
+                <!--</button>-->
+                <!--<a class="navbar-brand" href="#">我的第一个node项目</a>-->
+            <!--</div>-->
+
+            <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
+                <!--&lt;!&ndash;  左边导航  &ndash;&gt;-->
+                <!--<ul class="nav navbar-nav">-->
+                    <!--<li class="{{homeActive}}"><a href="/">首页</a></li>-->
+                    <!--<li class="{{productActive}}"><a href="/goodslist">商品</a></li>-->
+                    <!--<li class="{{aboutActive}}"><a href="/about">店铺</a></li>-->
+                    <!--<li class="{{orderActive}}"><a href="/order">我的订单</a></li>-->
+                <!--</ul>-->
+
+                <!--&lt;!&ndash;  搜索框  &ndash;&gt;-->
+                <!--<div class="navbar-form navbar-left">-->
+                    <!--<div class="form-group">-->
+                    <!--<input id="search-ipt" type="text" class="form-control" placeholder="Search">-->
+                    <!--</div>-->
+                    <!--<button id="search-btn" class="btn btn-success">搜索</button>-->
+                <!--</div>-->
+
+                <!--&lt;!&ndash;  右边导航  &ndash;&gt;-->
+                <!--<ul class="nav navbar-nav navbar-right">-->
+                    <!--{% if username %}-->
+                    <!--<li class="dropdown {{loginActive}}">-->
+                        <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{username}}<span class="caret"></span></a>-->
+                        <!--<ul class="dropdown-menu">-->
+                            <!--<li><a href="/user">个人中心</a></li>-->
+                            <!--<li id="logout">退出</li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                    <!--{% else %}-->
+                    <!--<li class="{{loginActive}}"><a href="/login">登录</a></li>-->
+                    <!--<li class="{{regActive}}"><a href="/register">注册</a></li>-->
+                    <!--{% endif %}-->
+                    <!---->
+                    <!--<li class="{{regActive}}"><a href="/admin">卖家入口</a></li>-->
+                    <!---->
+
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--</nav>-->
+        <nav>
+            <div class="w1100  clearfix">
+                <div class="nav-left fl">
+                    <strong style="">+444 (100) 1234</strong>
+                    <span>(Mon- Fri: 09.00 - 21.00)</span>
+                </div>
+                <div class="nav-right fr">
+                    <input id="search-ipt" type="text" class="" placeholder="Search here...">
+                    <a href="javascript:;" id="search-btn"><img src="/public/img/search.png" alt=""></a>
+                    <a href="/admin" class="f14" style="height: 26px;padding: 0 8px;border-radius:13px;  border: 1px solid #999">卖家页面&raquo;</a>
+                </div>
+            </div>
+
+        </nav>
+        <div class="w1100 clearfix header">
+            <img src="/public/img/logo.png" class="logoimg fl">
+            <ul class=" clearfix navsub">
+                <li class="{{homeActive}}"><a href="/">首页</a></li>
+                <li class="{{productActive}}"><a href="/goodslist">商品</a></li>
+                <li class="{{aboutActive}}"><a href="/about">店铺</a></li>
+                <li class="{{orderActive}}"><a href="/order">订单</a></li>
+                {% if username %}
+                <li class="dropdown {{loginActive}}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{username}}<span class="caret"></span></a>
+                        <ul class="dropdown-menu" style="">
+                            <li><a href="/order">个人中心</a></li>
+                            <li id="logout"><a href="javascript:;">退出</a></li>
+                        </ul>
+                </li>
+                {% else %}
+                    <li class="{{loginActive}}"><a href="/login">登录</a></li>
+                    <li class="{{regActive}}"><a href="/register">注册</a>
+                {% endif %}
+               
+               
+            </ul>
+        </div>
+
+
+        {% block content %}
+        {% endblock %}
+        <div class="mt20">
+            <img src="/public/img/b2.png" width="100%">
+            <img src="/public/img/f1.png" width="100%">
+        </div>
+      
+        <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+        <script src="/public/js/bootstrap.min.js"></script>
+        <script src="/public/js/main.js"></script>
+
+        {% block js %}
+        {% endblock %}
+        
+  </body>
+</html>

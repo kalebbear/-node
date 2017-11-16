@@ -1,0 +1,115 @@
+{% extends './layout.html' %}
+{% block css %}
+<style>
+   #csize span,#cstyle span{
+     border:1px solid #fa6f57;
+     padding: 5px 8px;
+     margin-right: 10px;
+    cursor: pointer;
+    border-radius: 5px
+   }
+   #csize,#cstyle{
+     height: 40px;
+   }
+   #csize span.active,#cstyle span.active{
+      background:#fa6f57;
+     color:#fff
+   }
+   .d-box h1{
+    font-size: 26px;
+    font-weight: bold;
+    height: 40px;
+    color: #000
+   }
+   .d-box .price{
+      font-weight: bold;
+      font-size: 18px;
+      color: #fa6f57;
+      margin-bottom: 30px
+   }
+   .l-btn{
+    height: 30px;
+    width: 80px;
+    line-height: 30px;
+    text-align: center;
+    margin-right: 100px;
+    border: 0;
+    border-radius: 15px;
+    color: #fff;
+    background: #fa6f57
+  }
+</style>
+{% endblock %}
+{% block content %}
+ <div class="sortbox mb20">
+    <div class="w1100 clearfix ">
+        <p style="line-height: 60px ;font-size: 12px;letter-spacing: 3px">首页/商品详情</p>
+    </div>
+  </div> 
+
+  <div class="w1100 clearfix d-box">
+        
+        <img src="{{goodsInfo.img}}" class="fl" width="250" height="350">
+        <div class="fl" style="margin-left: 140px">
+              <h1>{{goodsInfo.goodsname}}</h1>
+             
+              <p class="price"><b>￥</b>{{goodsInfo.price}}</p>
+              <div id="csize" class="choose">
+                <b>尺码：</b>
+                {% for i in goodsInfo.size%}
+                <span>{{i}}</span>
+                {% endfor %}
+              </div>
+              <div id="cstyle" class="choose">
+                <b>样式：</b>
+                {% for i in goodsInfo.style%}
+                <span>{{i}}</span>
+                {% endfor %}
+              </div>
+               <div><b>商品介绍：</b>
+               <p class="mt20 mb20">{{goodsInfo.description}}</p>
+             </div>
+              <a href="javascript:;" goodsId="{{goodsInfo._id.toString()}}" id="btn-buy" class="fl l-btn">购买</a>
+        </div>
+
+        </div>
+        
+
+{% endblock %}
+{% block js %}
+<script>
+
+    $('.choose').on('click','span',function(){
+       //alert()
+        $(this).addClass('active').siblings().removeClass('active')
+    })
+
+    $('#btn-buy').on('click',function(){
+      //  var url ="/order?id={{goodsInfo._id.toString()}}";
+        var selectSize = $('#csize').find('.active').html();
+        var selectStyle = $('#cstyle').find('.active').html();
+        //console.log(selectSize)
+        if(!selectSize||!selectStyle){
+            alert('请选择尺寸，样式')
+            return;
+        }
+
+        var goodsId = $(this).attr('goodsId')
+        $.post("api/addOrder",{
+            selectSize:selectSize,
+            selectStyle:selectStyle,
+            goodsId:goodsId
+        },function(res){
+            //console.log(res)
+            if(res.code==0){
+                alert('添加成功')
+                location.href='/order'
+            }else{
+                alert(res.message)
+            }
+        })
+    })
+
+</script>
+
+{% endblock %}
